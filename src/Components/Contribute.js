@@ -1,26 +1,34 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const Contribute = () => {
+    const navigate = useNavigate();
+    const handleOnClick = (e)=>{
+        navigate("/")
+    }
     return (
-        <div>
-            <h2>Share Your Recipe Here </h2>
-            <form>
-                <div className="mb-3">
-                    <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
-                    <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
-                        <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
-                </div>
-                <div className="mb-3">
-                    <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
-                    <input type="password" className="form-control" id="exampleInputPassword1" />
-                </div>
-                <div className="mb-3 form-check">
-                    <input type="checkbox" className="form-check-input" id="exampleCheck1" />
-                        <label className="form-check-label" htmlFor="exampleCheck1">Check me out</label>
-                </div>
-                <button type="submit" className="btn btn-primary">Submit</button>
-            </form>
-        </div>
+        <>
+            <div className="container">
+                <h2>Share Your Recipe Here </h2>
+                <form className='mx-5'>
+                    <div className="mb-3">
+                        <label htmlFor="recipeName" className="form-label text-danger">Recipe Name</label>
+                        <input type="text" className="form-control mx-2" id="recipeName" name="recipeName" aria-describedby="emailHelp" />
+                        <div id="recipeHelp" className="form-text mx-2">Give a unique name to your Recipe so that it stands out.</div>
+                    </div>
+                    <div className="mb-3">
+                        <label htmlFor="ingredients" className="form-label text-success">Ingredients</label>
+                        <input type="text" className="form-control mx-2" id="ingredients" name='ingredients' />
+                    </div>
+                    <div className="mb-3">
+                        <label htmlFor="description" className="form-label">Description of Recipe</label>
+                        <input type="text" className="form-control mx-2" id="description" name='description' />
+                    </div>
+
+                    <button type="submit" onClick={handleOnClick} className="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </>
     )
 }
 
